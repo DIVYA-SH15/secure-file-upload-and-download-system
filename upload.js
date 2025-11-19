@@ -4,7 +4,7 @@ import path from "path";
 import mongoose from "mongoose";
 
 // ----------------------------
-// 📌 MongoDB Schema
+//  MongoDB Schema
 // ----------------------------
 const fileSchema = new mongoose.Schema({
   filename: String,
@@ -15,7 +15,7 @@ const fileSchema = new mongoose.Schema({
 export const File = mongoose.model("File", fileSchema);
 
 // ----------------------------
-// 📌 Multer Storage
+//  Multer Storage
 // ----------------------------
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -27,3 +27,4 @@ const storage = multer.diskStorage({
 });
 
 export const upload = multer({ storage });
+
