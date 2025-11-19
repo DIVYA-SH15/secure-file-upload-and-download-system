@@ -18,9 +18,9 @@ const __dirname = path.dirname(__filename);
 // Serve frontend UI from public folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// ----------------------------
-// 📌 MongoDB Connect
-// ----------------------------
+
+// MongoDB Connect
+
 (async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, "public")));
 })();
 
 // ----------------------------
-// 📌 Upload Route
+//  Upload Route
 // ----------------------------
 app.post("/upload", upload.single("file"), async (req, res) => {
   try {
@@ -54,7 +54,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 });
 
 // ----------------------------
-// 📌 Get All Uploaded Files
+//  Get All Uploaded Files
 // ----------------------------
 app.get("/files", async (req, res) => {
   try {
@@ -67,7 +67,7 @@ app.get("/files", async (req, res) => {
 });
 
 // ----------------------------
-// 📌 Download Route
+//  Download Route
 // ----------------------------
 app.get("/download/:filename", (req, res) => {
   const filePath = path.join(process.cwd(), "uploads", req.params.filename);
@@ -108,9 +108,10 @@ app.delete("/files/:id", async (req, res) => {
 
 
 // ----------------------------
-// 📌 Start Server
+//  Start Server
 // ----------------------------
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
